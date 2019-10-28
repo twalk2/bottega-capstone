@@ -1,13 +1,14 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import alta from "./images/main/alta.jpeg";
-import parkCity from "./images/main/park-city.jpeg";
-import snowbird from "./images/main/snowbird.jpg";
+import shred from "./images/main/shred-dude.jpg";
+import alta from "./images/main/resort.jpg";
+import parkCity from "./images/main/ski-dude.jpg";
+import snowbird from "./images/main/night-skiing.jpg";
 
 const Carousel = () => {
   const [imgIndex, setImgIndex] = React.useState(0);
-  const carouselImages = [alta, parkCity, snowbird];
+  const carouselImages = [shred, alta, parkCity, snowbird];
 
   const handlePrevious = () => {
     if (imgIndex === 0) {
@@ -19,7 +20,7 @@ const Carousel = () => {
   };
 
   const handleNext = () => {
-    if (imgIndex === 2) {
+    if (imgIndex === 3) {
       setImgIndex(0);
     } else {
       setImgIndex(imgIndex + 1);
@@ -29,17 +30,13 @@ const Carousel = () => {
 
   return (
     <div className="carousel-wrapper">
-      <div className="carousel">
-        <img src={carouselImages[imgIndex]}></img>
-        <div>
-          <button onClick={handlePrevious}>
-            <FontAwesomeIcon icon="arrow-circle-left" />
-          </button>
-          <button onClick={handleNext}>
-            <FontAwesomeIcon icon="arrow-circle-right" />
-          </button>
-        </div>
-      </div>
+      <img className="carousel-image" src={carouselImages[imgIndex]}></img>
+      <button className="left-button" onClick={handlePrevious}>
+        <FontAwesomeIcon icon="arrow-circle-left" />
+      </button>
+      <button className="right-button" onClick={handleNext}>
+        <FontAwesomeIcon icon="arrow-circle-right" />
+      </button>
     </div>
   );
 };
