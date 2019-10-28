@@ -1,9 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Nav = () => {
   return (
     <div className="navbar">
+      <div className="icon-wrapper">
+        <FontAwesomeIcon icon="mountain" />
+      </div>
       <div className="link-wrapper">
         <Link to="">Alta</Link>
       </div>

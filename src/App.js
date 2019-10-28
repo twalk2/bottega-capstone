@@ -7,13 +7,14 @@ import Carousel from "./Carousel";
 
 import {
   faArrowCircleRight,
-  faArrowCircleLeft
+  faArrowCircleLeft,
+  faMountain
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  library.add(faArrowCircleRight, faArrowCircleLeft);
+  library.add(faArrowCircleRight, faArrowCircleLeft, faMountain);
   return (
     <Router>
       <div className="App">
