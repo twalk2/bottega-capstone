@@ -1,0 +1,26 @@
+.resort-page-wrapper {
+  height: 100vh;
+
+  .resort-title {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+  }
+
+  .weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .trailmap-wrapper {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+    .trailmap-img {
+      width: 80vw;
+    }
+  }
+}

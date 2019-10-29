@@ -8,20 +8,27 @@ import {
   faArrowCircleRight,
   faArrowCircleLeft,
   faMountain,
-  faSkiing
+  faSkiing,
+  faSnowflake
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  library.add(faArrowCircleRight, faArrowCircleLeft, faMountain, faSkiing);
+  library.add(
+    faArrowCircleRight,
+    faArrowCircleLeft,
+    faMountain,
+    faSkiing,
+    faSnowflake
+  );
   return (
     <Router>
       <div className="App">
         <Nav />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/resort:slug" component={Resort} />
+          <Route path="/resort/:slug" component={Resort} />
         </Switch>
       </div>
     </Router>
