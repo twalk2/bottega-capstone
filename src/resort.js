@@ -47,7 +47,7 @@ const Resort = props => {
         ) : (
           <div className="weather">
             <FontAwesomeIcon
-              style={{ color: "#6ccff6" }}
+              style={{ color: "#6ccff6", fontSize: "1.5em" }}
               icon="snowflake"
               spin
             />
