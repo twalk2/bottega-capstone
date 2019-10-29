@@ -1,6 +1,4 @@
 import React from "react";
-import Nav from "./Nav";
-import Resort from "./Resort";
 import Carousel from "./Carousel";
 
 const Home = () => {

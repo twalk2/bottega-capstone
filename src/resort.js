@@ -11,7 +11,7 @@ const Resort = () => {
       .get(
         "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/9d6d671d72df6bd4eb402730f4165563/40.6461,-111.4980"
       )
-      .then(response => (setData(response.data), console.log(response.data)))
+      .then(response => setData(response.data))
 
       .catch(err => console.log("error", err));
   };
