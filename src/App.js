@@ -2,7 +2,7 @@ import React from "react";
 import "./styles/App.scss";
 import Home from "./Home";
 import Nav from "./Nav";
-import Resort from "./Resort";
+import Resort from "./resort";
 
 import {
   faArrowCircleRight,
