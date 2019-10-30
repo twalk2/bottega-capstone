@@ -3,10 +3,12 @@
 @import "./Carousel.scss";
 @import "./Home.scss";
 @import "./Resort.scss";
+@import "./Weather.scss";
 
 body {
   margin: 0px;
   font-family: "Ubuntu", sans-serif;
+  background-color: $white;
 }
 
 .App {

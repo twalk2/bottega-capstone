@@ -59,9 +59,9 @@ const Resort = props => {
       <div className="weather-button">
         {loading ? (
           <button>
-            {" "}
+            Loading...
             <FontAwesomeIcon
-              style={{ color: "#6ccff6", fontSize: "1.5em" }}
+              style={{ color: "#2e2f2f" }}
               icon="snowflake"
               spin
             />

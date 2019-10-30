@@ -40,31 +40,18 @@ const Carousel = () => {
     }
   };
 
-  // useEffect(() => {
-  // const interval = setInterval(() => {
-  // setTimeout(() => {
-  //   console.log(imgIndex);
-
-  // setImgIndex(imgIndex + 1);
-
-  // if (imgIndex === 0) {
-  //   setImgIndex(1);
-  //   console.log(imgIndex);
-  // } else if (imgIndex === 1) {
-  //   setImgIndex(2);
-  //   console.log(imgIndex);
-  // } else if (imgIndex === 2) {
-  //   setImgIndex(0);
-  //   console.log(imgIndex);
-  // }
-  // if (imgIndex === 0) {
-  //   setImgIndex(2);
-  // } else {
-  //   setImgIndex(imgIndex - 1);
-  // }
-  // return () => clearInterval(interval);
-  // }, 4000);
-  // });
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      if (imgIndex === 2) {
+        setImgIndex(0);
+        setTextIndex(0);
+      } else {
+        setImgIndex(prev => prev + 1);
+        setTextIndex(prev => prev + 1);
+      }
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [imgIndex]);
 
   return (
     <div className="carousel-wrapper">
@@ -77,12 +64,20 @@ const Carousel = () => {
       <div className="carousel-text">
         <h1>{carouselText[textIndex]}</h1>
       </div>
-      <button className="left-button" onClick={handlePrevious}>
+      {/* <button className="left-button" onClick={handlePrevious}>
         <FontAwesomeIcon icon="arrow-circle-left" />
       </button>
       <button className="right-button" onClick={handleNext}>
         <FontAwesomeIcon icon="arrow-circle-right" />
-      </button>
+      </button> */}
+      <button className="donate">Donate!</button>
+      <a
+        className="learn-more"
+        href="https://tw-bottega-react-portfolio.herokuapp.com/"
+        target="_blank"
+      >
+        Learn More
+      </a>
     </div>
   );
 };

@@ -28,14 +28,16 @@ const Weather = props => {
       onRequestClose={() => props.closeModal()}
       isOpen={props.modalOpen}
     >
-      {props.resortInfo.title}
-      <div>
-        <h2>
+      <div className="weather-wrapper">
+        <div className="resort-title">{props.resortInfo.title}</div>
+        <div>
           {data.length !== 0 ? (
             <div className="weather">
-              <div>Weekly Forecast:</div>
+              <h3>
+                <div>Weekly Forecast:</div>
+              </h3>
+              <div>{props.info.daily.icon}</div>
               <div>{props.info.daily.summary}</div>
-              <div>{props.info.latitude}</div>
             </div>
           ) : (
             <div className="weather">
@@ -46,7 +48,7 @@ const Weather = props => {
               />
             </div>
           )}
-        </h2>
+        </div>
       </div>
     </ReactModal>
   );

@@ -1,0 +1,26 @@
+.ReactModal__Content,
+.ReactModal__Content--after-open {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $gray;
+  color: $black;
+}
+
+.weather-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  border: 5px solid $blue;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  width: 100%;
+
+  .resort-title {
+    font-size: 3em;
+  }
+  .weather {
+    font-size: 1.5em;
+  }
+}

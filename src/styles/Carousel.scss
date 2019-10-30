@@ -11,6 +11,21 @@
   opacity: 0.6;
 }
 
+@mixin extraButton {
+  background-color: $blue;
+  border: 2px solid $black;
+  border-radius: 10px;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  outline: none;
+  font-size: 1.8em;
+  color: $black;
+
+  &:hover {
+    background-color: $light-blue;
+  }
+}
+
 .carousel-wrapper {
   height: 100vh;
   display: flex;
@@ -29,7 +44,7 @@
     @include carouselButton;
 
     &:hover {
-      color: $white;
+      color: $light-blue;
     }
   }
   .right-button {
@@ -38,7 +53,7 @@
     @include carouselButton;
 
     &:hover {
-      color: $white;
+      color: $light-blue;
     }
   }
   .carousel-text {
@@ -48,7 +63,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 70%;
+    top: 65%;
     color: $blue;
     font-size: 1.5em;
     background-color: #2e2f2fde;
@@ -59,10 +74,31 @@
     position: absolute;
     width: 100vw;
     height: 120px;
-    top: 70%;
+    top: 65%;
     color: $blue;
     font-size: 1.5em;
     background-color: #2799f1b0;
     clip-path: polygon(0 50%, 30% 20%, 70% 0, 100% 50%, 70% 80%, 30% 100%);
+  }
+
+  .donate {
+    @include extraButton;
+    padding: 5px;
+    left: 35%;
+    top: 90%;
+    position: absolute;
+  }
+
+  .learn-more {
+    @include extraButton;
+    padding: 5px;
+    right: 35%;
+    top: 90%;
+    text-decoration: none;
+    position: absolute;
+
+    &:visited {
+      color: none;
+    }
   }
 }

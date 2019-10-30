@@ -5,6 +5,8 @@
     display: flex;
     justify-content: center;
     padding-top: 50px;
+    color: $black;
+    font-size: 2em;
   }
 
   .weather {
@@ -28,5 +30,11 @@
     width: 100vw;
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
+
+    button {
+      @include extraButton;
+      font-size: 1.5em;
+    }
   }
 }
