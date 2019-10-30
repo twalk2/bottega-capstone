@@ -13,16 +13,17 @@
 
 @mixin extraButton {
   background-color: $blue;
-  border: 2px solid $black;
   border-radius: 10px;
   transition: 0.5s ease-in-out;
   cursor: pointer;
   outline: none;
-  font-size: 1.8em;
-  color: $black;
+  font-size: 1.5em;
+  color: $white;
+  border: none;
 
   &:hover {
     background-color: $light-blue;
+    color: $black;
   }
 }
 
@@ -83,7 +84,7 @@
 
   .donate {
     @include extraButton;
-    padding: 5px;
+    padding: 10px;
     left: 35%;
     top: 90%;
     position: absolute;
@@ -91,7 +92,7 @@
 
   .learn-more {
     @include extraButton;
-    padding: 5px;
+    padding: 10px;
     right: 35%;
     top: 90%;
     text-decoration: none;

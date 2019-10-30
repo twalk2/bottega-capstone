@@ -1,6 +1,5 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect } from "react";
 
 import shred from "./images/main/shred-dude.jpg";
 import alta from "./images/main/resort.jpg";

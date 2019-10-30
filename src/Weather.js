@@ -1,13 +1,11 @@
 import React from "react";
 
-import { useEffect } from "react";
 import ReactModal from "react-modal";
-import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Weather = props => {
-  const [data, setData] = React.useState([props]);
-  const [customStyles, setCustomStyles] = React.useState({
+  const [data] = React.useState([props]);
+  const [customStyles] = React.useState({
     content: {
       top: "50%",
       left: "50%",
