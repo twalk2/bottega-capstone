@@ -1,11 +1,15 @@
 import React from "react";
+import Weather from "./Weather";
 
-import axios from "axios";
-import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Nav from "./Nav";
+import axios from "axios";
 
 const Resort = props => {
-  const [data, setData] = React.useState([]);
+  const [info, setInfo] = React.useState([]);
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const resortInfo = props.location.state.resort;
   const weatherIcon = [
     "clear-day",
     "clear-night",
@@ -19,56 +23,61 @@ const Resort = props => {
     "fog"
   ];
 
-  const stateCheck = () => {};
+  // const handleWeather = () => {
+  //   axios
+  //     .get(
+  //       `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/9d6d671d72df6bd4eb402730f4165563/${props.location.state.resort.location}`
+  //     )
+  //     .then(response => (setData(response.data), console.log(response.data)))
 
-  const renderWeather = () => {
-    return (
-      <div>
-        <h2>
-          {data.length !== 0 ? (
-            <div className="weather">
-              <div>Weekly Forecast:</div>
-              <div>{data.daily.summary}</div>
-              <div>{data.latitude}</div>
-            </div>
-          ) : null
-          // <div className="weather">
-          //   <FontAwesomeIcon
-          //     style={{ color: "#6ccff6", fontSize: "1.5em" }}
-          //     icon="snowflake"
-          //     spin
-          //   />
-          // </div>
-          }
-        </h2>
-        {() => setData([])} {() => console.log("data", data)}
-      </div>
-    );
-  };
+  //     .catch(err => console.log("error", err));
+  // };
 
-  const handleWeather = () => {
-    axios
+  const openModal = async () => {
+    setLoading(true);
+    await axios
       .get(
         `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/9d6d671d72df6bd4eb402730f4165563/${props.location.state.resort.location}`
       )
-      .then(response => (setData(response.data), console.log(response.data)))
+      .then(response => (setInfo(response.data), console.log(info)))
 
       .catch(err => console.log("error", err));
+    setModalOpen(true);
+    setLoading(false);
   };
 
-  useEffect(() => {
-    console.log(props.location.state.resort);
-  }, [data]);
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   return (
     <div className="resort-page-wrapper">
+      <Nav closeModal={closeModal} />
       <div className="resort-title">
         <h1>{props.location.state.resort.title}</h1>
       </div>
       <div className="weather-button">
-        <button onClick={handleWeather}>View Weather</button>
+        {loading ? (
+          <button>
+            {" "}
+            <FontAwesomeIcon
+              style={{ color: "#6ccff6", fontSize: "1.5em" }}
+              icon="snowflake"
+              spin
+            />
+          </button>
+        ) : (
+          <button onClick={openModal}>View Weather</button>
+        )}
+        {modalOpen ? (
+          <Weather
+            closeModal={closeModal}
+            modalOpen={modalOpen}
+            resortInfo={resortInfo}
+            info={info}
+          />
+        ) : null}
       </div>
-      {renderWeather()}
 
       <div className="trailmap-wrapper">
         <img
