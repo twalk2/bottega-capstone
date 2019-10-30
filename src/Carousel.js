@@ -13,8 +13,8 @@ const Carousel = () => {
     <div>
       Utah Ski Central <FontAwesomeIcon icon="skiing" />
     </div>,
-    "Check the status of your favorite resort",
-    "Don't miss the pow"
+    "View conditions at your favorite resort",
+    "Check pass prices"
   ];
 
   const handlePrevious = () => {
