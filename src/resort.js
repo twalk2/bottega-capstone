@@ -19,6 +19,33 @@ const Resort = props => {
     "fog"
   ];
 
+  const stateCheck = () => {};
+
+  const renderWeather = () => {
+    return (
+      <div>
+        <h2>
+          {data.length !== 0 ? (
+            <div className="weather">
+              <div>Weekly Forecast:</div>
+              <div>{data.daily.summary}</div>
+              <div>{data.latitude}</div>
+            </div>
+          ) : null
+          // <div className="weather">
+          //   <FontAwesomeIcon
+          //     style={{ color: "#6ccff6", fontSize: "1.5em" }}
+          //     icon="snowflake"
+          //     spin
+          //   />
+          // </div>
+          }
+        </h2>
+        {() => setData([])} {() => console.log("data", data)}
+      </div>
+    );
+  };
+
   const handleWeather = () => {
     axios
       .get(
@@ -30,30 +57,19 @@ const Resort = props => {
   };
 
   useEffect(() => {
-    handleWeather();
-  }, []);
+    console.log(props.location.state.resort);
+  }, [data]);
 
   return (
     <div className="resort-page-wrapper">
       <div className="resort-title">
         <h1>{props.location.state.resort.title}</h1>
       </div>
-      <h2>
-        {data.length !== 0 ? (
-          <div className="weather">
-            <div>Weekly Forecast:</div>
-            <div>{data.daily.summary}</div>
-          </div>
-        ) : (
-          <div className="weather">
-            <FontAwesomeIcon
-              style={{ color: "#6ccff6", fontSize: "1.5em" }}
-              icon="snowflake"
-              spin
-            />
-          </div>
-        )}
-      </h2>
+      <div className="weather-button">
+        <button onClick={handleWeather}>View Weather</button>
+      </div>
+      {renderWeather()}
+
       <div className="trailmap-wrapper">
         <img
           className="trailmap-img"
