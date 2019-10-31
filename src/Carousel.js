@@ -69,7 +69,7 @@ const Carousel = () => {
       <button className="right-button" onClick={handleNext}>
         <FontAwesomeIcon icon="arrow-circle-right" />
       </button> */}
-      <button className="donate">Donate!</button>
+      <button className="review-resort">Review Resort!</button>
       <a
         className="learn-more"
         href="https://tw-bottega-react-portfolio.herokuapp.com/"

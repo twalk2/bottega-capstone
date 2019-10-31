@@ -4,22 +4,38 @@ import Home from "./Home";
 import Resort from "./resort";
 
 import {
-  faArrowCircleRight,
-  faArrowCircleLeft,
   faMountain,
   faSkiing,
-  faSnowflake
+  faSnowflake,
+  faArrowAltCircleDown,
+  faSun,
+  faMoon,
+  faCloudSun,
+  faCloudMoon,
+  faCloud,
+  faCloudRain,
+  faCloudShowersHeavy,
+  faWind,
+  faSmog
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   library.add(
-    faArrowCircleRight,
-    faArrowCircleLeft,
     faMountain,
     faSkiing,
-    faSnowflake
+    faSnowflake,
+    faArrowAltCircleDown,
+    faSun,
+    faMoon,
+    faCloudSun,
+    faCloudMoon,
+    faCloud,
+    faCloudRain,
+    faCloudShowersHeavy,
+    faWind,
+    faSmog
   );
   return (
     <Router>

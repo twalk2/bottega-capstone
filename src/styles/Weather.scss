@@ -10,7 +10,7 @@
 .weather-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   height: 100%;
   border: 5px solid $blue;
@@ -22,5 +22,15 @@
   }
   .weather {
     font-size: 1.5em;
+
+    .weather-modal {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .weather-icon {
+      color: $light-blue;
+      font-size: 2.5em;
+    }
   }
 }

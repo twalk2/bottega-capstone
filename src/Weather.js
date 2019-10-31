@@ -20,6 +20,33 @@ const Weather = props => {
     }
   });
 
+  const weatherIcon = icon => {
+    console.log(props.info);
+    if (icon === "clear-day") {
+      return <FontAwesomeIcon icon="sun" />;
+    } else if (icon === "clear-night") {
+      return <FontAwesomeIcon icon="moon" />;
+    } else if (icon === "partly-cloudy-day") {
+      return <FontAwesomeIcon icon="cloud-sun" />;
+    } else if (icon === "partly-cloudy-night") {
+      return <FontAwesomeIcon icon="cloud-moon" />;
+    } else if (icon === "cloudy") {
+      return <FontAwesomeIcon icon="cloud" />;
+    } else if (icon === "rain") {
+      return <FontAwesomeIcon icon="cloud-rain" />;
+    } else if (icon === "sleet") {
+      return <FontAwesomeIcon icon="cloud-shower-heavy" />;
+    } else if (icon === "snow") {
+      return <FontAwesomeIcon icon="snowflake" />;
+    } else if (icon === "wind") {
+      return <FontAwesomeIcon icon="wind" />;
+    } else if (icon === "fog") {
+      return <FontAwesomeIcon icon="smog" />;
+    } else {
+      return "?";
+    }
+  };
+
   return (
     <ReactModal
       style={customStyles}
@@ -32,9 +59,15 @@ const Weather = props => {
           {data.length !== 0 ? (
             <div className="weather">
               <h3>
-                <div>Weekly Forecast:</div>
+                <div>Forecast:</div>
               </h3>
-              <div>{props.info.daily.icon}</div>
+              <div className="weather-modal">
+                <div className="weather-icon">
+                  {weatherIcon(props.info.daily.icon)}
+                </div>
+                <div>{props.info.currently.summary}</div>
+                <div>{props.info.currently.temperature} degrees</div>
+              </div>
               <div>{props.info.daily.summary}</div>
             </div>
           ) : (

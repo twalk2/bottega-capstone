@@ -10,18 +10,6 @@ const Resort = props => {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const resortInfo = props.location.state.resort;
-  const weatherIcon = [
-    "clear-day",
-    "clear-night",
-    "partly-cloudy-day",
-    "partly-cloudy-night",
-    "cloudy",
-    "rain",
-    "sleet",
-    "snow",
-    "wind",
-    "fog"
-  ];
 
   // const handleWeather = () => {
   //   axios
@@ -78,7 +66,6 @@ const Resort = props => {
           />
         ) : null}
       </div>
-
       <div className="trailmap-wrapper">
         <img
           className="trailmap-img"
