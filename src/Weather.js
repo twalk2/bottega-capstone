@@ -7,13 +7,11 @@ const Weather = props => {
   const [data] = React.useState([props]);
   const [customStyles] = React.useState({
     content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      width: "800px",
-      zIndex: 9999
+      top: "25%",
+      left: "20%",
+      right: "20%",
+      bottom: "25%",
+      marginRight: "0%"
     },
     overlay: {
       backgroundColor: "rgba(1, 1, 1, 0.75)"

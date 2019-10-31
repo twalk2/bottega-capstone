@@ -1,5 +1,6 @@
 import React from "react";
 import Weather from "./Weather";
+import { useEffect } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Nav from "./Nav";
@@ -9,6 +10,7 @@ const Resort = props => {
   const [info, setInfo] = React.useState([]);
   const [modalOpen, setModalOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
+  const [review, setReview] = React.useState([]);
   const resortInfo = props.location.state.resort;
 
   // const handleWeather = () => {
@@ -20,6 +22,37 @@ const Resort = props => {
 
   //     .catch(err => console.log("error", err));
   // };
+
+  useEffect(() => {
+    getReviews();
+  }, []);
+
+  const getReviews = () => {
+    axios
+      .get("https://creepy-chupacabra-73720.herokuapp.com/reviews")
+      .then(response => setReview(response.data))
+      .catch(error => console.log(error));
+  };
+
+  const renderReviews = () => {
+    return review.map(item => {
+      if (item.resort === props.location.state.resort.title) {
+        return (
+          <div className="resort-review-wrapper">
+            <div>
+              <span className="categories">Name:</span> {item.name}
+            </div>
+            <div>
+              <span className="categories">Rating:</span> {item.rating}
+            </div>
+            <div>
+              <span className="categories">Comment:</span> {item.comment}
+            </div>
+          </div>
+        );
+      }
+    });
+  };
 
   const openModal = async () => {
     setLoading(true);
@@ -66,6 +99,7 @@ const Resort = props => {
           />
         ) : null}
       </div>
+      <div className="cards-wrapper">{renderReviews()}</div>
       <div className="trailmap-wrapper">
         <img
           className="trailmap-img"

@@ -1,5 +1,12 @@
 .resort-page-wrapper {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    color: $black;
+  }
 
   .resort-title {
     display: flex;
@@ -58,5 +65,27 @@
     justify-content: center;
     font-size: 1.5em;
     color: $blue;
+  }
+
+  .cards-wrapper {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .resort-review-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100px;
+      width: 300px;
+      border: 2px solid $light-blue;
+      box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.25);
+      margin-bottom: 50px;
+
+      .categories {
+        color: $blue;
+      }
+    }
   }
 }

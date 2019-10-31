@@ -1,11 +1,14 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Review from "./Review";
 
 import shred from "./images/main/shred-dude.jpg";
 import alta from "./images/main/resort.jpg";
 import parkCity from "./images/main/ski-dude.jpg";
 
 const Carousel = () => {
+  const [modalOpen, setModalOpen] = React.useState(false);
+
   const [imgIndex, setImgIndex] = React.useState(0);
   const [textIndex, setTextIndex] = React.useState(0);
   const carouselImages = [shred, alta, parkCity];
@@ -16,6 +19,14 @@ const Carousel = () => {
     "View conditions at your favorite resort",
     "Check pass prices"
   ];
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   const handlePrevious = () => {
     if (imgIndex === 0) {
@@ -69,7 +80,16 @@ const Carousel = () => {
       <button className="right-button" onClick={handleNext}>
         <FontAwesomeIcon icon="arrow-circle-right" />
       </button> */}
-      <button className="review-resort">Review Resort!</button>
+      <button
+        onClick={openModal}
+        closeModal={closeModal}
+        className="review-resort"
+      >
+        Review Resort
+      </button>
+      {modalOpen ? (
+        <Review closeModal={closeModal} modalOpen={modalOpen} />
+      ) : null}
       <a
         className="learn-more"
         href="https://tw-bottega-react-portfolio.herokuapp.com/"

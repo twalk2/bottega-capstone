@@ -1,0 +1,80 @@
+.ReactModal__Content,
+.ReactModal__Content--after-open {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $gray;
+  color: $black;
+}
+
+.review-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border: 5px solid $blue;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  width: 100%;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    outline: none;
+
+    .name {
+      outline: none;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+      color: $blue;
+      font-size: 1em;
+    }
+
+    .comment {
+      outline: none;
+      height: 50px;
+      width: 300px;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+      color: $blue;
+      font-size: 0.8em;
+    }
+
+    .submit {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+
+      button {
+        @include extraButton;
+      }
+    }
+
+    .selectors {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      color: $blue;
+
+      select {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+        color: $blue;
+        font-size: 1em;
+        outline: none;
+      }
+
+      textarea {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+        color: $blue;
+        font-size: 1em;
+        outline: none;
+      }
+    }
+  }
+}
