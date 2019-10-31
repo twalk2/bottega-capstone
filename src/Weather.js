@@ -64,7 +64,7 @@ const Weather = props => {
                   {weatherIcon(props.info.daily.icon)}
                 </div>
                 <div>{props.info.currently.summary}</div>
-                <div>{props.info.currently.temperature} degrees</div>
+                <div>{props.info.currently.temperature} &deg;F</div>
               </div>
               <div>{props.info.daily.summary}</div>
             </div>

@@ -57,6 +57,9 @@ const Review = props => {
               onChange={event => setResort(event.target.value)}
               name="resort"
             >
+              <option value="" selected disabled hidden required>
+                Choose a resort
+              </option>
               <option value="Alta">Alta</option>
               <option value="Brighton">Brighton</option>
               <option value="Deer Valley">Deer Valley</option>
@@ -69,8 +72,14 @@ const Review = props => {
             <select
               onChange={event => setRating(event.target.value)}
               name="rating"
+              selected="1 star"
             >
-              <option value="1 star">1 star</option>
+              <option selected="selected" value="1 star">
+                1 star
+              </option>
+              <option value="" selected disabled hidden required>
+                Pick a rating
+              </option>
               <option value="2 stars">2 stars</option>
               <option value="3 stars">3 stars</option>
               <option value="4 stars">4 stars</option>

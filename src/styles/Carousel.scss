@@ -84,6 +84,7 @@
   }
 
   .review-resort {
+    animation: btnWiggle 5s infinite;
     @include extraButton;
     padding: 10px;
     left: 35%;
@@ -98,9 +99,27 @@
     top: 90%;
     text-decoration: none;
     position: absolute;
+    animation: btnWiggle 5s infinite;
 
     &:visited {
       color: none;
     }
+  }
+}
+@keyframes btnWiggle {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  2% {
+    -webkit-transform: rotate(-1deg);
+  }
+  3.5% {
+    -webkit-transform: rotate(1deg);
+  }
+  5% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
   }
 }
