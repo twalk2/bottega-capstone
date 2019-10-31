@@ -75,7 +75,7 @@
     .resort-review-wrapper {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-around;
       align-items: flex-start;
       height: 100px;
       width: 300px;
@@ -85,6 +85,7 @@
 
       .categories {
         color: $blue;
+        padding: 5px;
       }
     }
   }
