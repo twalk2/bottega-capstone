@@ -11,21 +11,25 @@ const Resort = props => {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [review, setReview] = React.useState([]);
+  const reviewCards = [];
+  const [cardIndex, setCardIndex] = React.useState(0);
   const resortInfo = props.location.state.resort;
-
-  // const handleWeather = () => {
-  //   axios
-  //     .get(
-  //       `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/9d6d671d72df6bd4eb402730f4165563/${props.location.state.resort.location}`
-  //     )
-  //     .then(response => (setData(response.data), console.log(response.data)))
-
-  //     .catch(err => console.log("error", err));
-  // };
 
   useEffect(() => {
     getReviews();
   }, []);
+
+  useEffect(() => {
+    console.log(cardIndex);
+    const interval = setInterval(() => {
+      if (cardIndex === reviewCards.length - 1) {
+        setCardIndex(0);
+      } else {
+        setCardIndex(prev => prev + 1);
+      }
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [cardIndex]);
 
   const getReviews = () => {
     axios
@@ -36,14 +40,18 @@ const Resort = props => {
 
   const renderReviews = () => {
     return review.map(item => {
+      console.log(reviewCards);
+
       if (item.resort === props.location.state.resort.title) {
+        reviewCards.push(item);
         return (
           <div className="resort-review-wrapper">
             <div>
               <span className="categories">Name:</span> {item.name}
             </div>
-            <div>
-              <span className="categories">Rating:</span> {item.rating}
+            <div className="rating">
+              <span className="categories">Rating:</span>{" "}
+              {renderStars(item.rating)}
             </div>
             <div>
               <span className="categories">Comment:</span> {item.comment}
@@ -69,6 +77,53 @@ const Resort = props => {
 
   const closeModal = () => {
     setModalOpen(false);
+  };
+
+  const renderStars = rating => {
+    switch (rating) {
+      case "1 star":
+        return (
+          <div>
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+          </div>
+        );
+      case "2 stars":
+        return (
+          <div>
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+          </div>
+        );
+      case "3 stars":
+        return (
+          <div>
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+          </div>
+        );
+      case "4 stars":
+        return (
+          <div>
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+          </div>
+        );
+      case "5 stars":
+        return (
+          <div>
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+            <FontAwesomeIcon style={{ padding: "1px" }} icon="snowflake" />
+          </div>
+        );
+      default:
+        return null;
+    }
   };
 
   return (

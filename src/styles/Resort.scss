@@ -78,15 +78,24 @@
       flex-direction: column;
       justify-content: space-around;
       align-items: flex-start;
-      height: 100px;
+      height: 150px;
       width: 300px;
       border: 2px solid $light-blue;
+      border-radius: 10px;
       box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.25);
       margin-bottom: 50px;
 
+      div {
+        margin: 2px;
+        padding: 5px;
+      }
+      .rating {
+        display: flex;
+        align-items: center;
+      }
+
       .categories {
         color: $blue;
-        padding: 5px;
       }
     }
   }

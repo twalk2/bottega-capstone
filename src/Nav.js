@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Nav = props => {
+  const [windowWidth, setWindowWidth] = useState("");
+  const [toggleDrop, setToggleDrop] = useState(false);
   const resorts = [
     {
       title: "Alta",
@@ -34,6 +36,62 @@ const Nav = props => {
     { title: "Solitude", location: "40.6199,-111.5919", trailMap: "Solitude" }
   ];
 
+  useEffect(() => {
+    let windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+
+    setWindowWidth(windowWidth);
+    console.log(windowWidth);
+  }, [windowWidth]);
+
+  const navState = () => {
+    if (windowWidth <= 1024) {
+      if (toggleDrop == false) {
+        return (
+          <div
+            className="icon-wrapper"
+            style={{ position: "absolute", left: "0%" }}
+          >
+            <button onClick={() => setToggleDrop(!toggleDrop)}>
+              <FontAwesomeIcon icon="bars" />
+            </button>
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <div
+              className="icon-wrapper"
+              style={{ position: "absolute", left: "0%", top: "0%" }}
+            >
+              <button onClick={() => setToggleDrop(!toggleDrop)}>
+                <FontAwesomeIcon icon="bars" />
+              </button>
+            </div>
+            {renderLinks()}
+          </div>
+        );
+      }
+    } else {
+      return resorts.map(resort => {
+        return (
+          <div key={resort.title} className="link-wrapper">
+            <Link
+              to={{
+                pathname: `/resort/${resort.title}`,
+                state: {
+                  resort
+                }
+              }}
+              onClick={() => props.closeModal()}
+            >
+              {resort.title}
+            </Link>
+          </div>
+        );
+      });
+    }
+  };
+
   const renderLinks = () => {
     return resorts.map(resort => {
       return (
@@ -61,7 +119,7 @@ const Nav = props => {
           <FontAwesomeIcon icon="mountain" />
         </Link>
       </div>
-      {renderLinks()}
+      {navState()}
     </div>
   );
 };

@@ -16,7 +16,9 @@ import {
   faCloudRain,
   faCloudShowersHeavy,
   faWind,
-  faSmog
+  faSmog,
+  faStar,
+  faBars
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -35,7 +37,9 @@ function App() {
     faCloudRain,
     faCloudShowersHeavy,
     faWind,
-    faSmog
+    faSmog,
+    faStar,
+    faBars
   );
   return (
     <Router>

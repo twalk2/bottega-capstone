@@ -21,7 +21,7 @@ const Weather = props => {
   const weatherIcon = icon => {
     console.log(props.info);
     if (icon === "clear-day") {
-      return <FontAwesomeIcon icon="sun" />;
+      return <FontAwesomeIcon icon="sun" style={{ color: "#f9d71c" }} spin />;
     } else if (icon === "clear-night") {
       return <FontAwesomeIcon icon="moon" />;
     } else if (icon === "partly-cloudy-day") {
@@ -35,7 +35,7 @@ const Weather = props => {
     } else if (icon === "sleet") {
       return <FontAwesomeIcon icon="cloud-shower-heavy" />;
     } else if (icon === "snow") {
-      return <FontAwesomeIcon icon="snowflake" />;
+      return <FontAwesomeIcon icon="snowflake" spin />;
     } else if (icon === "wind") {
       return <FontAwesomeIcon icon="wind" />;
     } else if (icon === "fog") {

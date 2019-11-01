@@ -28,31 +28,9 @@ const Carousel = () => {
     setModalOpen(false);
   };
 
-  const handlePrevious = () => {
-    if (imgIndex === 0) {
-      setImgIndex(2);
-      setTextIndex(2);
-    } else {
-      setImgIndex(imgIndex - 1);
-      setTextIndex(textIndex - 1);
-      console.log(imgIndex);
-    }
-  };
-
-  const handleNext = () => {
-    if (imgIndex === 2) {
-      setImgIndex(0);
-      setTextIndex(0);
-    } else {
-      setImgIndex(imgIndex + 1);
-      setTextIndex(textIndex + 1);
-      console.log(imgIndex);
-    }
-  };
-
   React.useEffect(() => {
     const interval = setInterval(() => {
-      if (imgIndex === 2) {
+      if (imgIndex === carouselImages.length - 1) {
         setImgIndex(0);
         setTextIndex(0);
       } else {
@@ -74,12 +52,6 @@ const Carousel = () => {
       <div className="carousel-text">
         <h1>{carouselText[textIndex]}</h1>
       </div>
-      {/* <button className="left-button" onClick={handlePrevious}>
-        <FontAwesomeIcon icon="arrow-circle-left" />
-      </button>
-      <button className="right-button" onClick={handleNext}>
-        <FontAwesomeIcon icon="arrow-circle-right" />
-      </button> */}
       <button
         onClick={openModal}
         closeModal={closeModal}
