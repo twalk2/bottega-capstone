@@ -1,8 +1,8 @@
 .resort-page-wrapper {
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: space-between;
 
   h1 {
     color: $black;
@@ -29,6 +29,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: auto;
     .trailmap-img {
       width: 80vw;
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
@@ -61,15 +62,9 @@
     }
   }
 
-  .down-arrow {
-    display: flex;
-    justify-content: center;
-    font-size: 1.5em;
-    color: $blue;
-  }
-
   .cards-wrapper {
     width: 100vw;
+    height: auto;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
