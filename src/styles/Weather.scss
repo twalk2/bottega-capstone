@@ -42,18 +42,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: auto;
+    height: 100%;
     border: 5px solid $blue;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    width: auto;
+    width: 100%;
 
     .resort-title {
-      font-size: 3em;
+      font-size: 2em;
       padding: 5px;
     }
     .weather {
       padding: 5px;
-      font-size: 1.5em;
+      font-size: 1em;
 
       .weather-modal {
         display: flex;

@@ -41,7 +41,6 @@ const Nav = props => {
   };
 
   useEffect(() => {
-    // let windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
     window.addEventListener("resize", updateWidth);
 
     return () => window.removeEventListener("resize", updateWidth);
