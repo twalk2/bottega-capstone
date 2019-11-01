@@ -92,6 +92,11 @@ const Nav = props => {
     }
   };
 
+  const closeIsh = () => {
+    props.closeModal();
+    setToggleDrop(false);
+  };
+
   const renderLinks = () => {
     return resorts.map(resort => {
       return (
@@ -103,7 +108,7 @@ const Nav = props => {
                 resort
               }
             }}
-            onClick={() => props.closeModal()}
+            onClick={() => closeIsh()}
           >
             {resort.title}
           </Link>
