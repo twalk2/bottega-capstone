@@ -24,7 +24,7 @@ const Nav = props => {
     },
     {
       title: "Powder Mountain",
-      location: "41.2608,-111.7699",
+      location: "41.3790,-111.7807",
       trailMap: "Powder-Mountain"
     },
     {
