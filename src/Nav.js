@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Nav = props => {
-  const [windowWidth, setWindowWidth] = useState("");
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [toggleDrop, setToggleDrop] = useState(false);
   const resorts = [
     {
@@ -36,11 +36,15 @@ const Nav = props => {
     { title: "Solitude", location: "40.6199,-111.5919", trailMap: "Solitude" }
   ];
 
-  useEffect(() => {
-    let windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+  const updateWidth = () => {
+    setWindowWidth(window.innerWidth);
+  };
 
-    setWindowWidth(windowWidth);
-    console.log(windowWidth);
+  useEffect(() => {
+    // let windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+    window.addEventListener("resize", updateWidth);
+
+    return () => window.removeEventListener("resize", updateWidth);
   }, [windowWidth]);
 
   const navState = () => {
