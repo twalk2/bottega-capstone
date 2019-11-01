@@ -49,7 +49,7 @@ const Nav = props => {
         return (
           <div
             className="icon-wrapper"
-            style={{ position: "absolute", left: "0%" }}
+            style={{ position: "absolute", left: "1%", top: "2%" }}
           >
             <button onClick={() => setToggleDrop(!toggleDrop)}>
               <FontAwesomeIcon icon="bars" />
@@ -61,7 +61,7 @@ const Nav = props => {
           <div>
             <div
               className="icon-wrapper"
-              style={{ position: "absolute", left: "0%", top: "0%" }}
+              style={{ position: "absolute", left: "1%", top: "2%" }}
             >
               <button onClick={() => setToggleDrop(!toggleDrop)}>
                 <FontAwesomeIcon icon="bars" />
