@@ -9,31 +9,59 @@ const Nav = props => {
     {
       title: "Alta",
       location: "40.5883,-111.6358",
-      trailMap: "Alta"
+      trailMap: "Alta",
+      day: "$125",
+      night: "NA"
     },
-    { title: "Brighton", location: "40.5980,-111.5832", trailMap: "Brighton" },
+    {
+      title: "Brighton",
+      location: "40.5980,-111.5832",
+      trailMap: "Brighton",
+      day: "$99",
+      night: "$54"
+    },
     {
       title: "Deer Valley",
       location: "40.6374,-111.4783",
-      trailMap: "Deer-Valley"
+      trailMap: "Deer-Valley",
+      day: "$98",
+      night: "NA"
     },
     {
       title: "Park City",
       location: "40.6514,-111.5080",
-      trailMap: "Park-City"
+      trailMap: "Park-City",
+      day: "$121",
+      night: "NA"
     },
     {
       title: "Powder Mountain",
       location: "41.3790,-111.7807",
-      trailMap: "Powder-Mountain"
+      trailMap: "Powder-Mountain",
+      day: "$125",
+      night: "$33"
     },
     {
       title: "Snowbasin",
       location: "41.2160,-111.8569",
-      trailMap: "Snowbasin"
+      trailMap: "Snowbasin",
+      day: "$125",
+      night: "NA"
     },
-    { title: "Snowbird", location: "40.5651,-111.6536", trailMap: "Snowbird" },
-    { title: "Solitude", location: "40.6199,-111.5919", trailMap: "Solitude" }
+    {
+      title: "Snowbird",
+      location: "40.5651,-111.6536",
+      trailMap: "Snowbird",
+      day: "$125",
+      night: "$20"
+    },
+    {
+      title: "Solitude",
+      location: "40.6199,-111.5919",
+      trailMap: "Solitude",
+      day: "$125",
+      night: "NA"
+    }
   ];
 
   const updateWidth = () => {

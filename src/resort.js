@@ -132,6 +132,10 @@ const Resort = props => {
       <div className="resort-title">
         <h1>{props.location.state.resort.title}</h1>
       </div>
+      <div className="pass-prices">
+        <h2>Day pass: {props.location.state.resort.day}</h2>
+        <h2>Night pass: {props.location.state.resort.night}</h2>
+      </div>
       <div className="weather-button">
         {loading ? (
           <button>
