@@ -11,25 +11,11 @@ const Resort = props => {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [review, setReview] = React.useState([]);
-  const reviewCards = [];
-  const [cardIndex, setCardIndex] = React.useState(0);
   const resortInfo = props.location.state.resort;
 
   useEffect(() => {
     getReviews();
   }, []);
-
-  useEffect(() => {
-    console.log(cardIndex);
-    const interval = setInterval(() => {
-      if (cardIndex === reviewCards.length - 1) {
-        setCardIndex(0);
-      } else {
-        setCardIndex(prev => prev + 1);
-      }
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [cardIndex]);
 
   const getReviews = () => {
     axios
@@ -40,10 +26,7 @@ const Resort = props => {
 
   const renderReviews = () => {
     return review.map(item => {
-      console.log(reviewCards);
-
       if (item.resort === props.location.state.resort.title) {
-        reviewCards.push(item);
         return (
           <div className="resort-review-wrapper">
             <div>
@@ -58,6 +41,8 @@ const Resort = props => {
             </div>
           </div>
         );
+      } else {
+        return null;
       }
     });
   };
@@ -68,7 +53,7 @@ const Resort = props => {
       .get(
         `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/9d6d671d72df6bd4eb402730f4165563/${props.location.state.resort.location}`
       )
-      .then(response => (setInfo(response.data), console.log(info)))
+      .then(response => setInfo(response.data))
 
       .catch(err => console.log("error", err));
     setModalOpen(true);

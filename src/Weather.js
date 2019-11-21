@@ -33,7 +33,7 @@ const Weather = props => {
     } else if (icon === "rain") {
       return <FontAwesomeIcon icon="cloud-rain" />;
     } else if (icon === "sleet") {
-      return <FontAwesomeIcon icon="cloud-shower-heavy" />;
+      return <FontAwesomeIcon icon="cloud-showers-heavy" />;
     } else if (icon === "snow") {
       return <FontAwesomeIcon icon="snowflake" spin />;
     } else if (icon === "wind") {
@@ -61,7 +61,7 @@ const Weather = props => {
               </h3>
               <div className="weather-modal">
                 <div className="weather-icon">
-                  {weatherIcon(props.info.daily.icon)}
+                  {weatherIcon(props.info.currently.icon)}
                 </div>
                 <div>{props.info.currently.summary}</div>
                 <div>{props.info.currently.temperature} &deg;F</div>
