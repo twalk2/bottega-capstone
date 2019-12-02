@@ -25,26 +25,32 @@ const Resort = props => {
   };
 
   const renderReviews = () => {
-    return review.map(item => {
-      if (item.resort === props.location.state.resort.title) {
-        return (
-          <div className="resort-review-wrapper">
-            <div>
-              <span className="categories">Name:</span> {item.name}
+    if (review.length > 1) {
+      return review.map(item => {
+        if (item.resort === props.location.state.resort.title) {
+          return (
+            <div className="resort-review-wrapper">
+              <div>
+                <span className="categories">Name:</span> {item.name}
+              </div>
+              <div className="rating">
+                <span className="categories">Rating:</span>{" "}
+                {renderStars(item.rating)}
+              </div>
+              <div>
+                <span className="categories">Comment:</span> {item.comment}
+              </div>
             </div>
-            <div className="rating">
-              <span className="categories">Rating:</span>{" "}
-              {renderStars(item.rating)}
-            </div>
-            <div>
-              <span className="categories">Comment:</span> {item.comment}
-            </div>
-          </div>
-        );
-      } else {
-        return null;
-      }
-    });
+          );
+        } else {
+          return null;
+        }
+      });
+    } else {
+      return (
+        <div style={{ margin: "20px", fontSize: "1.5em" }}>Loading...</div>
+      );
+    }
   };
 
   const openModal = async () => {
@@ -53,7 +59,7 @@ const Resort = props => {
       .get(
         `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/9d6d671d72df6bd4eb402730f4165563/${props.location.state.resort.location}`
       )
-      .then(response => setInfo(response.data))
+      .then(response => (setInfo(response.data), console.log(response)))
 
       .catch(err => console.log("error", err));
     setModalOpen(true);

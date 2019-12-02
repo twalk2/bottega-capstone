@@ -7,10 +7,10 @@ const Weather = props => {
   const [data] = React.useState([props]);
   const [customStyles] = React.useState({
     content: {
-      top: "25%",
+      top: "20%",
       left: "20%",
       right: "20%",
-      bottom: "25%",
+      bottom: "20%",
       marginRight: "0%"
     },
     overlay: {
@@ -45,6 +45,10 @@ const Weather = props => {
     }
   };
 
+  const precipPercentage = prob => {
+    return prob * 1;
+  };
+
   return (
     <ReactModal
       style={customStyles}
@@ -65,6 +69,10 @@ const Weather = props => {
                 </div>
                 <div>{props.info.currently.summary}</div>
                 <div>{props.info.currently.temperature} &deg;F</div>
+              </div>
+              <div>
+                Chance of snow:{" "}
+                {precipPercentage(props.info.currently.precipProbability)}%
               </div>
               <div>{props.info.daily.summary}</div>
             </div>
