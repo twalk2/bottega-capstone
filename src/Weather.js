@@ -46,7 +46,7 @@ const Weather = props => {
   };
 
   const precipPercentage = prob => {
-    return prob * 1;
+    return prob * 100;
   };
 
   return (
